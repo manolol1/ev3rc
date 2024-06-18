@@ -1,109 +1,105 @@
 <!DOCTYPE html>
 
-</html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>EV3 Remote Control</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EV3 Remote Control</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: darkolivegreen;
+            }
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: darkolivegreen;
-        }
+            button {
+                font-size: 55px;
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+                border: none;
+                border-radius: 5px;
+                background-color: darkgreen;
+                color: white;
+                cursor: pointer;
+            }
 
-        button {
-            font-size: 55px;
-            width: 80px;
-            height: 80px;
-            margin: 0 auto;
-            border: none;
-            border-radius: 5px;
-            background-color: darkgreen;
-            color: white;
-            cursor: pointer;
-        }
+            .button-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                grid-gap: 15px;
+                width: 80vw;
+                max-width: 260px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
 
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            grid-gap: 15px;
-            width: 80vw;
-            max-width: 260px;
-            margin: 0 auto;
-        }
-    </style>
-</head>
+    <body>
+        <center>
+            <h1 style="margin-top: 10vh;">EV3 Remote Control</h1>
+            <div class="button-grid">
+                <button id="forward-left">↖️</button>
+                <button id="forward">⬆️</button>
+                <button id="forward-right">↗️</button>
+                <button id="left">⬅️</button>
+                <button id="stop">⏹️</button>
+                <button id="right">➡️</button>
+                <button id="backward-left">↙️</button>
+                <button id="backward">⬇️</button>
+                <button id="backward-right">↘️</button>
+            </div>
+        </center>
 
-<body>
+        <script>
+            // get all button elements
+            var forward = document.getElementById('forward');
+            var left = document.getElementById('left');
+            var stop = document.getElementById('stop');
+            var right = document.getElementById('right');
+            var backward = document.getElementById('backward');
+            var forwardLeft = document.getElementById('forward-left');
+            var forwardRight = document.getElementById('forward-right');
+            var backwardLeft = document.getElementById('backward-left');
+            var bacwardRight = document.getElementById('backward-right');
 
-    <center>
-        <h1 style="margin-top: 10vh;">EV3 Remote Control</h1>
-        <div class="button-grid">
-            <button id="forward-left">↖️</button>
-            <button id="forward">⬆️</button>
-            <button id="forward-right">↗️</button>
-            <button id="left">⬅️</button>
-            <button id="stop">⏹️</button>
-            <button id="right">➡️</button>
-            <button id="backward-left">↙️</button>
-            <button id="backward">⬇️</button>
-            <button id="backward-right">↘️</button>
-        </div>
-    </center>
+            // trigger fetch request when button is clicked
+            forward.addEventListener('click', function () {
+                fetch('/forward');
+            });
 
-    <script>
-        // get all button elements
-        var forward = document.getElementById('forward');
-        var left = document.getElementById('left');
-        var stop = document.getElementById('stop');
-        var right = document.getElementById('right');
-        var backward = document.getElementById('backward');
-        var forwardLeft = document.getElementById('forward-left');
-        var forwardRight = document.getElementById('forward-right');
-        var backwardLeft = document.getElementById('backward-left');
-        var bacwardRight = document.getElementById('backward-right');
+            left.addEventListener('click', function () {
+                fetch('/left');
+            });
 
-        // trigger fetch request when button is clicked
-        forward.addEventListener('click', function () {
-            fetch('/forward');
-        });
+            stop.addEventListener('click', function () {
+                fetch('/stop');
+            });
 
-        left.addEventListener('click', function () {
-            fetch('/left');
-        });
+            right.addEventListener('click', function () {
+                fetch('/right');
+            });
 
-        stop.addEventListener('click', function () {
-            fetch('/stop');
-        });
+            backward.addEventListener('click', function () {
+                fetch('/backward');
+            });
 
-        right.addEventListener('click', function () {
-            fetch('/right');
-        });
+            forwardLeft.addEventListener('click', function () {
+                fetch('/forward-left');
+            });
 
-        backward.addEventListener('click', function () {
-            fetch('/backward');
-        });
+            forwardRight.addEventListener('click', function () {
+                fetch('/forward-right');
+            });
 
-        forwardLeft.addEventListener('click', function () {
-            fetch('/forward-left');
-        });
+            backwardLeft.addEventListener('click', function () {
+                fetch('/backward-left');
+            });
 
-        forwardRight.addEventListener('click', function () {
-            fetch('/forward-right');
-        });
-
-        backwardLeft.addEventListener('click', function () {
-            fetch('/backward-left');
-        });
-
-        bacwardRight.addEventListener('click', function () {
-            fetch('/backward-right');
-        });
-    </script>
-</body>
-
+            bacwardRight.addEventListener('click', function () {
+                fetch('/backward-right');
+            });
+        </script>
+    </body>
 </html>
